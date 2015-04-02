@@ -13,12 +13,18 @@ public class TodoService {
 
   @PostConstruct
   public void init() {
-    items.add(new TodoItem("Create MVC sample app"));
-    items.add(new TodoItem("Create blog post"));
+    createItem("Create MVC sample app");
+    createItem("Create blog post");
   }
 
   public List<TodoItem> getItems() {
     return Collections.unmodifiableList(items);
+  }
+
+  public TodoItem createItem(String title) {
+    TodoItem item = new TodoItem(title);
+    items.add(item);
+    return item;
   }
 
 }

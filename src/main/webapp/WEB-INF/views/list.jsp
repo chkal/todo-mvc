@@ -24,6 +24,22 @@
       <div class="starter-template">
         <h1>TODO List</h1>
 
+        <c:if test="${message != null}">
+          <div class="alert alert-success" role="alert">
+            ${message}
+          </div>
+        </c:if>
+
+        <c:if test="${not empty errors}">
+          <div class="alert alert-danger" role="alert">
+            <ul>
+              <c:forEach var="error" items="${errors}">
+                <ul>${error}</ul>
+              </c:forEach>
+            </ul>
+          </div>
+        </c:if>
+
         <table class="table table-striped">
           <thead>
             <tr>
@@ -38,6 +54,13 @@
             </c:forEach>
           </tbody>
         </table>
+
+        <form action="index" method="POST" class="form-inline">
+          <div class="form-group">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+          </div>
+          <button type="submit" class="btn btn-default">Create</button>
+        </form>
 
       </div>
 
