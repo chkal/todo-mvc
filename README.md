@@ -15,6 +15,16 @@ all the requirements in the WAR instead of having to rely on the container to pr
 
 ## Getting started
 
+The application is pretty minimal at the moment. I'll try to add comments to the relevant
+sections of the code so you don't have to read the specification for getting started. ;)
+
+You can either deploy the WAR yourself or use the Jetty Maven plugin. In both cases
+the application will be available under this URL:
+
+    http://localhost:8080/todo-mvc/
+
+### Build and deploy the WAR
+
 Clone this Git repository and build the WAR using Maven:
 
     $ mvn clean package
@@ -23,8 +33,12 @@ The resulting WAR is named `target/todo-mvc.war`. You can now deploy this WAR fi
 [Apache Tomcat](http://tomcat.apache.org/). It is recommended to use the latest release
 of the 8.0.x product line.
 
-The application is pretty minimal at the moment. I'll try to add comments to the relevant
-sections of the code so you don't have to read the specification for getting started. ;)
+### Jetty Maven Plugin
+
+Instead of deploying the WAR file yourself, you can also use the Jetty Maven plugin.
+To build the project and start the embedded Jetty container, type this:
+
+    $ mvn jetty:run-forked
 
 ## Feedback welcome
 
