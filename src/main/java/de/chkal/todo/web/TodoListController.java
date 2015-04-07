@@ -37,12 +37,12 @@ public class TodoListController {
 
   @POST
   @Controller
-  public void createItem(@BeanParam @Valid NewTodoItemForm form) {
+  public void createItem(@BeanParam @Valid CreateItemForm form) {
 
     if (validationResult.isFailed()) {
 
       List<String> errors = validationResult.getAllViolations().stream()
-          .map(v -> v.getPropertyPath() + ": " + v.getMessage())
+          .map(v -> v.getMessage())
           .collect(Collectors.toList());
 
       prepareModel();

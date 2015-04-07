@@ -32,9 +32,9 @@
 
         <c:if test="${not empty errors}">
           <div class="alert alert-danger" role="alert">
-            <ul>
+            <ul class="list-unstyled">
               <c:forEach var="error" items="${errors}">
-                <ul>${error}</ul>
+                <li>${error}</li>
               </c:forEach>
             </ul>
           </div>
