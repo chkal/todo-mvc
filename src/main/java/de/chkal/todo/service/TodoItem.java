@@ -1,5 +1,9 @@
 package de.chkal.todo.service;
 
+/**
+ * The model object representing a single item.
+ * Could be an JPA entity in real world applications.
+ */
 public class TodoItem {
 
   private String title;

@@ -16,6 +16,9 @@ import javax.ws.rs.Path;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * A simple MVC controller.
+ */
 @Path("/index")
 @View("list.jsp")
 public class TodoListController {
@@ -55,6 +58,13 @@ public class TodoListController {
 
     prepareModel();
     models.put("message", "Item created: " + newItem.getTitle());
+
+    /*
+     * Actually this method should use the POST-Redirect-GET pattern here.
+     * The API for this is yet to be defined.
+     *
+     * https://java.net/jira/browse/MVC_SPEC-31
+     */
 
   }
 
