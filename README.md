@@ -10,35 +10,37 @@ of Java EE 8.
 
 To be able to use the latest versions of all technologies which are required for MVC (like
 JAX-RS, CDI and Bean Validation), this application has been created to be deployed to a 
-Servlet container like [Apache Tomcat](http://tomcat.apache.org/). This allows to include
-all the requirements in the WAR instead of having to rely on the container to provide these.
+Servlet container like [Apache Tomcat](http://tomcat.apache.org/) or [Jetty](http://eclipse.org/jetty/). 
+This allows to include all the requirements in the WAR file instead of having to rely on the 
+container to provide them.
 
 ## Getting started
 
-The application is pretty minimal at the moment. I'll try to add comments to the relevant
-sections of the code so you don't have to read the specification for getting started. ;)
+The application is pretty minimal at the moment. I added comments to the relevant
+sections of the code so you don't have to read the specification for understanding
+what is going on. ;)
 
-You can either deploy the WAR yourself or use the Jetty Maven plugin. In both cases
-the application will be available under this URL:
+You can either use the Jetty Maven Plugin or deploy the WAR file to a container yourself.
+In both cases the application will be available under this URL:
 
     http://localhost:8080/todo-mvc/
 
+### Jetty Maven Plugin
+
+The simplest way to start the application is to use the Jetty Maven plugin.
+To build the project and start the embedded Jetty container, type this:
+
+    $ mvn jetty:run-forked
+
 ### Build and deploy the WAR
 
-Clone this Git repository and build the WAR using Maven:
+If you want to deploy the WAR file yourself, build it like this:
 
     $ mvn clean package
 
 The resulting WAR is named `target/todo-mvc.war`. You can now deploy this WAR file to 
-[Apache Tomcat](http://tomcat.apache.org/). It is recommended to use the latest release
-of the 8.0.x product line.
-
-### Jetty Maven Plugin
-
-Instead of deploying the WAR file yourself, you can also use the Jetty Maven plugin.
-To build the project and start the embedded Jetty container, type this:
-
-    $ mvn jetty:run-forked
+[Apache Tomcat](http://tomcat.apache.org/) or [Jetty](http://eclipse.org/jetty/). 
+If you are using Tomcat, you should use the latest release of the 8.0.x product line.
 
 ## Feedback welcome
 
