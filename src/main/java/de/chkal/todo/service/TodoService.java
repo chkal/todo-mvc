@@ -17,7 +17,7 @@ public class TodoService {
   @PostConstruct
   public void init() {
     createItem("Create MVC sample app");
-    createItem("Create blog post");
+    createItem("Write a blog post about it");
   }
 
   public List<TodoItem> getItems() {
