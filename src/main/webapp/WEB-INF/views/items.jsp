@@ -58,7 +58,7 @@
                   ${item.title}
                 </td>
                 <td class="text-center">
-                  <form action="./index/delete" method="POST">
+                  <form action="${pageContext.request.contextPath}/r/items/delete" method="POST">
                     <input type="hidden" name="id" value="${item.id}"/>
                     <button type="submit" class="btn btn-danger">
                       Delete
@@ -70,7 +70,7 @@
           </tbody>
         </table>
 
-        <form action="index" method="POST" class="form-inline">
+        <form action="${pageContext.request.contextPath}/r/items/create" method="POST" class="form-inline">
           <div class="form-group">
             <input type="text" class="form-control" id="title" name="title" placeholder="Title">
           </div>

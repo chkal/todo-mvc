@@ -6,7 +6,6 @@ import de.chkal.todo.service.TodoService;
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
-import javax.mvc.View;
 import javax.mvc.validation.ValidationResult;
 import javax.validation.Valid;
 import javax.ws.rs.*;
@@ -16,8 +15,7 @@ import java.util.stream.Collectors;
 /**
  * A simple MVC controller.
  */
-@Path("/index")
-@View("list.jsp")
+@Path("/items")
 public class TodoListController {
 
   @Inject
@@ -31,13 +29,15 @@ public class TodoListController {
 
   @GET
   @Controller
-  public void prepareModel() {
+  public String listItems() {
     models.put("items", todoService.getItems());
+    return "items.jsp";
   }
 
   @POST
+  @Path("/create")
   @Controller
-  public void createItem(@BeanParam @Valid CreateItemForm form) {
+  public String createItem(@BeanParam @Valid CreateItemForm form) {
 
     if (validationResult.isFailed()) {
 
@@ -45,23 +45,22 @@ public class TodoListController {
           .map(v -> v.getMessage())
           .collect(Collectors.toList());
 
-      prepareModel();
       models.put("errors", errors);
-      return;
+      return listItems();
 
     }
 
     TodoItem newItem = todoService.createItem(form.getTitle());
 
-    prepareModel();
-    models.put("message", "Item created: " + newItem.getTitle());
-
     /*
      * Actually this method should use the POST-Redirect-GET pattern here.
-     * The API for this is yet to be defined.
+     * The API for this is yet to be defined. And there should also be
+     * some kind of flash scope, to be able to persist messages.
      *
      * https://java.net/jira/browse/MVC_SPEC-31
      */
+    models.put("message", "Item created: " + newItem.getTitle());
+    return listItems();
 
   }
 
@@ -72,10 +71,8 @@ public class TodoListController {
 
     todoService.deleteItem(id);
 
-    /*
-     * An Ozark specific way of doing redirects.
-     */
-    return "redirect:/index";
+    // An Ozark specific way of doing redirects. Should this go into the spec?
+    return "redirect:/items";
 
   }
 
