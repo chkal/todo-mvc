@@ -1,5 +1,7 @@
 package de.chkal.todo.web;
 
+import de.chkal.todo.service.TodoItem;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
@@ -16,6 +18,10 @@ public class CreateItemForm {
   @FormParam("title")
   private String title;
 
+  @NotNull(message = "Please select the priority of the task")
+  @FormParam("priority")
+  private TodoItem.Priority priority;
+
   public String getTitle() {
     return title;
   }
@@ -24,4 +30,11 @@ public class CreateItemForm {
     this.title = title;
   }
 
+  public TodoItem.Priority getPriority() {
+    return priority;
+  }
+
+  public void setPriority(TodoItem.Priority priority) {
+    this.priority = priority;
+  }
 }

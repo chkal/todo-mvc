@@ -64,7 +64,7 @@ public class TodoListController {
 
     }
 
-    TodoItem newItem = todoService.createItem(form.getTitle());
+    TodoItem newItem = todoService.createItem(form.getTitle(), form.getPriority());
 
     /*
      * Actually this method should use the POST-Redirect-GET pattern here.

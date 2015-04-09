@@ -6,17 +6,26 @@ package de.chkal.todo.service;
  */
 public class TodoItem {
 
+  public enum Priority {
+    LOW,
+    MEDIUM,
+    HIGH
+  }
+
   private long id;
 
   private String title;
+
+  private Priority priority;
 
   public TodoItem() {
     // default constructor
   }
 
-  public TodoItem(long id, String title) {
+  public TodoItem(long id, String title, Priority priority) {
     this.id = id;
     this.title = title;
+    this.priority = priority;
   }
 
   public String getTitle() {
@@ -34,4 +43,13 @@ public class TodoItem {
   public void setId(long id) {
     this.id = id;
   }
+
+  public Priority getPriority() {
+    return priority;
+  }
+
+  public void setPriority(Priority priority) {
+    this.priority = priority;
+  }
+
 }

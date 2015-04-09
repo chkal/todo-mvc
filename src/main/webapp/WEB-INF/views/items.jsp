@@ -41,12 +41,14 @@
 
       <table class="table table-striped">
         <colgroup>
-          <col style="width: 70%;" />
+          <col style="width: 40%;" />
+          <col style="width: 30%;" />
           <col style="width: 30%;" />
         </colgroup>
         <thead>
           <tr>
             <th class="text-left">Title</th>
+            <th class="text-center">Priority</th>
             <th class="text-center">Actions</th>
           </tr>
         </thead>
@@ -55,6 +57,9 @@
             <tr>
               <td class="text-left">
                 ${item.title}
+              </td>
+              <td class="text-center">
+                  ${item.priority}
               </td>
               <td class="text-center">
                 <form action="${pageContext.request.contextPath}/r/items/delete" method="POST">
@@ -74,7 +79,15 @@
           <input type="text" class="form-control" id="title" name="title" placeholder="Title"
               value="${createItemForm.title}" autofocus>
         </div>
-        <button type="submit" class="btn btn-default">Create</button>
+        <div class="form-group">
+          <select name="priority" class="form-control">
+            <option value="">- Priority -</option>
+            <option value="LOW">LOW</option>
+            <option value="MEDIUM">MEDIUM</option>
+            <option value="HIGH">HIGH</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
       </form>
 
     </div>

@@ -16,16 +16,16 @@ public class TodoService {
 
   @PostConstruct
   public void init() {
-    createItem("Create MVC sample app");
-    createItem("Write a blog post about it");
+    createItem("Create MVC sample app", TodoItem.Priority.HIGH);
+    createItem("Write a blog post about it", TodoItem.Priority.MEDIUM);
   }
 
   public List<TodoItem> getItems() {
     return Collections.unmodifiableList(items);
   }
 
-  public TodoItem createItem(String title) {
-    TodoItem item = new TodoItem(sequence++, title);
+  public TodoItem createItem(String title, TodoItem.Priority priority) {
+    TodoItem item = new TodoItem(sequence++, title, priority);
     items.add(item);
     return item;
   }
