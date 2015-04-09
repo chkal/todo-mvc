@@ -24,15 +24,15 @@
       <h1>TODO List</h1>
 
       <!-- In real world application this should go into a tag file -->
-      <c:if test="${message != null}">
+      <c:if test="${messages.info != null}">
         <div class="alert alert-success" role="alert">
-          ${message}
+          ${messages.info}
         </div>
       </c:if>
-      <c:if test="${not empty errors}">
+      <c:if test="${not empty messages.errors}">
         <div class="alert alert-danger" role="alert">
           <ul class="list-unstyled">
-            <c:forEach var="error" items="${errors}">
+            <c:forEach var="error" items="${messages.errors}">
               <li>${error}</li>
             </c:forEach>
           </ul>
