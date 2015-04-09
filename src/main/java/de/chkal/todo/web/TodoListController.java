@@ -9,10 +9,7 @@ import javax.mvc.Models;
 import javax.mvc.View;
 import javax.mvc.validation.ValidationResult;
 import javax.validation.Valid;
-import javax.ws.rs.BeanParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,6 +62,20 @@ public class TodoListController {
      *
      * https://java.net/jira/browse/MVC_SPEC-31
      */
+
+  }
+
+  @POST
+  @Path("/delete")
+  @Controller
+  public String deleteItem(@FormParam("id") long id) {
+
+    todoService.deleteItem(id);
+
+    /*
+     * An Ozark specific way of doing redirects.
+     */
+    return "redirect:/index";
 
   }
 

@@ -41,15 +41,30 @@
         </c:if>
 
         <table class="table table-striped">
+          <colgroup>
+            <col style="width: 70%;" />
+            <col style="width: 30%;" />
+          </colgroup>
           <thead>
             <tr>
-              <th>Title</th>
+              <th class="text-left">Title</th>
+              <th class="text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
             <c:forEach var="item" items="${items}">
               <tr>
-                <td>${item.title}</td>
+                <td class="text-left">
+                  ${item.title}
+                </td>
+                <td class="text-center">
+                  <form action="./index/delete" method="POST">
+                    <input type="hidden" name="id" value="${item.id}"/>
+                    <button type="submit" class="btn btn-danger">
+                      Delete
+                    </button>
+                  </form>
+                </td>
               </tr>
             </c:forEach>
           </tbody>

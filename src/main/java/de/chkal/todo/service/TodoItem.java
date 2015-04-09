@@ -6,13 +6,16 @@ package de.chkal.todo.service;
  */
 public class TodoItem {
 
+  private long id;
+
   private String title;
 
   public TodoItem() {
     // default constructor
   }
 
-  public TodoItem(String title) {
+  public TodoItem(long id, String title) {
+    this.id = id;
     this.title = title;
   }
 
@@ -24,4 +27,11 @@ public class TodoItem {
     this.title = title;
   }
 
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
 }
