@@ -69,6 +69,7 @@ public class TodoListController {
      * some kind of flash scope to be able to persist messages accross
      * redirects.
      *
+     * https://java.net/jira/browse/MVC_SPEC-23
      * https://java.net/jira/browse/MVC_SPEC-31
      */
     messages.setInfo("Item created: " + newItem.getTitle());
