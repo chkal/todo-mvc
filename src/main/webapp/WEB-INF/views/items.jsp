@@ -71,7 +71,8 @@
 
       <form action="${pageContext.request.contextPath}/r/items/create" method="POST" class="form-inline">
         <div class="form-group">
-          <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+          <input type="text" class="form-control" id="title" name="title" placeholder="Title"
+              value="${createItemForm.title}" autofocus>
         </div>
         <button type="submit" class="btn btn-default">Create</button>
       </form>

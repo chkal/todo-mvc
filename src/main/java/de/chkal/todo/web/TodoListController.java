@@ -56,6 +56,9 @@ public class TodoListController {
           .map(violation -> violation.getMessage())
           .forEach(message -> messages.addError(message));
 
+      // The inputs should be populated with the previously submitted invalid values
+      models.put("createItemForm", form);
+
       // reuse the listItems() controller method to prepare the model for rendering
       return listItems();
 
