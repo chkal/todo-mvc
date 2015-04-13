@@ -2,6 +2,7 @@ package de.chkal.todo.service;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -16,16 +17,16 @@ public class TodoService {
 
   @PostConstruct
   public void init() {
-    createItem("Create MVC sample app", TodoItem.Priority.HIGH);
-    createItem("Write a blog post about it", TodoItem.Priority.MEDIUM);
+    createItem("Create MVC sample app", TodoItem.Priority.HIGH, LocalDate.now().plusDays(5));
+    createItem("Write a blog post about it", TodoItem.Priority.MEDIUM, null);
   }
 
   public List<TodoItem> getItems() {
     return Collections.unmodifiableList(items);
   }
 
-  public TodoItem createItem(String title, TodoItem.Priority priority) {
-    TodoItem item = new TodoItem(sequence++, title, priority);
+  public TodoItem createItem(String title, TodoItem.Priority priority, LocalDate dueDate) {
+    TodoItem item = new TodoItem(sequence++, title, priority, dueDate);
     items.add(item);
     return item;
   }

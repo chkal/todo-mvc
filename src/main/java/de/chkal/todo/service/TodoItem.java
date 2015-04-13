@@ -1,5 +1,7 @@
 package de.chkal.todo.service;
 
+import java.time.LocalDate;
+
 /**
  * The model object representing a single item.
  * Could be an JPA entity in real world applications.
@@ -18,14 +20,17 @@ public class TodoItem {
 
   private Priority priority;
 
+  private LocalDate dueDate;
+
   public TodoItem() {
     // default constructor
   }
 
-  public TodoItem(long id, String title, Priority priority) {
+  public TodoItem(long id, String title, Priority priority, LocalDate dueDate) {
     this.id = id;
     this.title = title;
     this.priority = priority;
+    this.dueDate = dueDate;
   }
 
   public String getTitle() {
@@ -52,4 +57,11 @@ public class TodoItem {
     this.priority = priority;
   }
 
+  public LocalDate getDueDate() {
+    return dueDate;
+  }
+
+  public void setDueDate(LocalDate dueDate) {
+    this.dueDate = dueDate;
+  }
 }

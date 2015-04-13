@@ -10,10 +10,13 @@
 
     <title>TODO MVC</title>
 
-    <link href="${pageContext.request.contextPath}/webjars/bootstrap/3.3.4/dist/css/bootstrap.css" rel="stylesheet">
-
     <script src="${pageContext.request.contextPath}/webjars/jquery/1.11.0/dist/jquery.js"></script>
+
+    <link href="${pageContext.request.contextPath}/webjars/bootstrap/3.3.4/dist/css/bootstrap.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/webjars/bootstrap/3.3.4/dist/js/bootstrap.js"></script>
+
+    <link href="${pageContext.request.contextPath}/webjars/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker3.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/webjars/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.js"></script>
 
   </head>
 
@@ -42,13 +45,15 @@
       <table class="table table-striped">
         <colgroup>
           <col style="width: 40%;" />
-          <col style="width: 30%;" />
-          <col style="width: 30%;" />
+          <col style="width: 25%;" />
+          <col style="width: 20%;" />
+          <col style="width: 15%;" />
         </colgroup>
         <thead>
           <tr>
             <th class="text-left">Title</th>
             <th class="text-center">Priority</th>
+            <th class="text-center">Due Date</th>
             <th class="text-center">Actions</th>
           </tr>
         </thead>
@@ -60,6 +65,9 @@
               </td>
               <td class="text-center">
                   ${item.priority}
+              </td>
+              <td class="text-center">
+                  ${item.dueDate}
               </td>
               <td class="text-center">
                 <form action="${pageContext.request.contextPath}/r/items/delete" method="POST">
@@ -80,12 +88,25 @@
               value="${createItemForm.title}" autofocus>
         </div>
         <div class="form-group">
-          <select name="priority" class="form-control">
+          <select name="priority" class="form-control" title="Priority">
             <option value="">- Priority -</option>
             <option value="LOW">LOW</option>
             <option value="MEDIUM">MEDIUM</option>
             <option value="HIGH">HIGH</option>
           </select>
+        </div>
+        <div class="form-group">
+          <input type="text" id="duedate" name="duedate" class="form-control" placeholder="Due date">
+          <script type="application/javascript">
+            $(function () {
+              $('#duedate').datepicker({
+                orientation: "top auto",
+                format: "yyyy-mm-dd",
+                clearBtn: true,
+                autoclose: true
+              });
+            });
+          </script>
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
       </form>
