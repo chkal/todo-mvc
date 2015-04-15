@@ -6,7 +6,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 /**
  * This class represents the form which is submitted when the user creates a new item.
@@ -25,7 +24,7 @@ public class CreateItemForm {
   private TodoItem.Priority priority;
 
   @FormParam("duedate")
-  private ParsableDate dueDate;
+  private LocalDate dueDate;
 
   public String getTitle() {
     return title;
@@ -44,25 +43,10 @@ public class CreateItemForm {
   }
 
   public LocalDate getDueDate() {
-    return dueDate != null ? dueDate.getDate() : null;
+    return dueDate;
   }
 
-  /**
-   * Just a wrapper for a LocalDate with a public constructor having a single string argument.
-   * JAX-RS will use this constructor for converting submitted form value to an object.
-   */
-  public static class ParsableDate {
-
-    private final LocalDate date;
-
-    public ParsableDate(String str) {
-      this.date = LocalDate.parse(str, DateTimeFormatter.ISO_DATE);
-    }
-
-    public LocalDate getDate() {
-      return date;
-    }
-
+  public void setDueDate(LocalDate dueDate) {
+    this.dueDate = dueDate;
   }
-
 }
