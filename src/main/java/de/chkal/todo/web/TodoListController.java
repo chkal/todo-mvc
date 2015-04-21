@@ -8,12 +8,19 @@ import javax.mvc.Controller;
 import javax.mvc.Models;
 import javax.mvc.validation.ValidationResult;
 import javax.validation.Valid;
-import javax.ws.rs.*;
+import javax.validation.executable.ExecutableType;
+import javax.validation.executable.ValidateOnExecution;
+import javax.ws.rs.BeanParam;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
 
 /**
  * A simple MVC controller.
  */
 @Path("/items")
+@Controller
 public class TodoListController {
 
   @Inject
@@ -33,7 +40,6 @@ public class TodoListController {
    * class to populates the model with all data required by the view.
    */
   @GET
-  @Controller
   public String listItems() {
     models.put("items", todoService.getItems());
     return "items.jsp";
@@ -47,7 +53,7 @@ public class TodoListController {
    */
   @POST
   @Path("/create")
-  @Controller
+  @ValidateOnExecution(type = ExecutableType.NONE)
   public String createItem(@BeanParam @Valid CreateItemForm form) {
 
     if (validationResult.isFailed()) {
@@ -88,7 +94,6 @@ public class TodoListController {
    */
   @POST
   @Path("/delete")
-  @Controller
   public String deleteItem(@FormParam("id") long id) {
 
     todoService.deleteItem(id);

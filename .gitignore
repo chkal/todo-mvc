@@ -7,4 +7,5 @@ target
 *.iml
 *.swp
 .DS_Store
-
+nb-configuration.xml
+nbactions.xml
