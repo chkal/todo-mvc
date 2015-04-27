@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation-config xmlns="http://jboss.org/xml/ns/javax/validation/configuration"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://jboss.org/xml/ns/javax/validation/configuration validation-configuration-1.1.xsd"
+                   version="1.1">
+
+  <!--
+    You can use Bean Validation's configuration file to change the default behaviour for
+    validating method invocations. If you change the default to NONE, you won't need to
+    use @ValidateOnExecution on your controller methods any more. But please note that
+    this will also affect non-controller methods. Which way to choose is basically
+    a matter of taste. :)
+  -->
+  <!--
+  <executable-validation enabled="true">
+    <default-validated-executable-types>
+      <executable-type>NONE</executable-type>
+    </default-validated-executable-types>
+  </executable-validation>
+  -->
+
+</validation-config>
