@@ -4,8 +4,8 @@ import de.chkal.todo.service.TodoItem;
 import de.chkal.todo.service.TodoService;
 
 import javax.inject.Inject;
-import javax.mvc.Controller;
 import javax.mvc.Models;
+import javax.mvc.annotation.Controller;
 import javax.mvc.validation.ValidationResult;
 import javax.validation.Valid;
 import javax.validation.executable.ExecutableType;
