@@ -83,10 +83,12 @@
       </table>
 
       <form action="${pageContext.request.contextPath}/items/create" method="POST" class="form-inline">
+
         <div class="form-group">
           <input type="text" class="form-control" id="title" name="title" placeholder="Title"
               value="${createItemForm.title}" autofocus>
         </div>
+
         <div class="form-group">
           <select name="priority" class="form-control" title="Priority">
             <option value="">- Priority -</option>
@@ -95,6 +97,7 @@
             <option value="HIGH">HIGH</option>
           </select>
         </div>
+
         <div class="form-group">
           <input type="text" id="duedate" name="duedate" class="form-control" placeholder="Due date">
           <script type="application/javascript">
@@ -108,7 +111,12 @@
             });
           </script>
         </div>
+
+        <!-- CSRF protection is enabled in "TodoApplication", so we need to submit the token like this -->
+        <input type="hidden" name="${mvc.csrf.name}" value="${mvc.csrf.token}"/>
+
         <button type="submit" class="btn btn-primary">Create</button>
+
       </form>
 
     </div>
