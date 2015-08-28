@@ -10,13 +10,13 @@
 
     <title>TODO MVC</title>
 
-    <script src="${pageContext.request.contextPath}/webjars/jquery/1.11.0/dist/jquery.js"></script>
+    <script src="${mvc.contextPath}/webjars/jquery/1.11.0/dist/jquery.js"></script>
 
-    <link href="${pageContext.request.contextPath}/webjars/bootstrap/3.3.4/dist/css/bootstrap.css" rel="stylesheet">
-    <script src="${pageContext.request.contextPath}/webjars/bootstrap/3.3.4/dist/js/bootstrap.js"></script>
+    <link href="${mvc.contextPath}/webjars/bootstrap/3.3.4/dist/css/bootstrap.css" rel="stylesheet">
+    <script src="${mvc.contextPath}/webjars/bootstrap/3.3.4/dist/js/bootstrap.js"></script>
 
-    <link href="${pageContext.request.contextPath}/webjars/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker3.css" rel="stylesheet">
-    <script src="${pageContext.request.contextPath}/webjars/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.js"></script>
+    <link href="${mvc.contextPath}/webjars/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker3.css" rel="stylesheet">
+    <script src="${mvc.contextPath}/webjars/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.js"></script>
 
   </head>
 
@@ -71,7 +71,7 @@
                   ${item.dueDate}
               </td>
               <td class="text-center">
-                <form action="${pageContext.request.contextPath}/items/delete" method="POST">
+                <form action="${mvc.contextPath}${mvc.applicationPath}/items/delete" method="POST">
                   <input type="hidden" name="id" value="${item.id}"/>
                   <button type="submit" class="btn btn-danger">
                     Delete
@@ -83,7 +83,8 @@
         </tbody>
       </table>
 
-      <form action="${pageContext.request.contextPath}/items/create" method="POST" class="form-inline">
+      <form action="${mvc.contextPath}${mvc.applicationPath}/items/create"
+            method="POST" class="form-inline">
 
         <div class="form-group">
           <input type="text" class="form-control" id="title" name="title" placeholder="Title"
