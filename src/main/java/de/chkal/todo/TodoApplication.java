@@ -10,7 +10,7 @@ import java.util.Map;
  * Application class required by JAX-RS. If you don't want to have any
  * prefix in the URL, you can set the application path to "/".
  */
-@ApplicationPath("/")
+@ApplicationPath("/r")
 public class TodoApplication extends Application {
 
   @Override
