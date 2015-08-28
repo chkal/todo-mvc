@@ -74,16 +74,11 @@ public class TodoListController {
         form.getDueDate());
 
     /*
-     * Actually this method should use the POST-Redirect-GET pattern here.
-     * The API for this has still to be defined. And there should also be
-     * some kind of flash scope to be able to persist messages accross
-     * redirects.
-     *
-     * https://java.net/jira/browse/MVC_SPEC-23
-     * https://java.net/jira/browse/MVC_SPEC-31
+     * Redirect the user after that so that pressing F5 in the browser
+     * doesn't trigger the form post again (POST-Redirect-GET pattern).
      */
     messages.setInfo("Item created: " + newItem.getTitle());
-    return listItems();
+    return "redirect:/items";
 
   }
 
@@ -98,11 +93,6 @@ public class TodoListController {
 
     todoService.deleteItem(id);
 
-    /*
-     * An Ozark specific way of doing redirects. Should this go into the spec?
-     * Redirecting here is fine as the method doesn't need to render any
-     * messages for the user which would get lost during the redirect.
-     */
     return "redirect:/items";
 
   }

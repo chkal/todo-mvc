@@ -1,7 +1,8 @@
 package de.chkal.todo.web;
 
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import javax.mvc.annotation.RedirectScoped;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,12 +11,14 @@ import java.util.List;
  * This class encapsulates messages displayed to the users. There can be a
  * single info message and multiple error messages. Controllers can use this
  * class to queue messages for rendering. The class shows how named CDI beans
- * can be used as a model for the view. Whether to to include some class like
- * this in the spec is not decided yet.
+ * can be used as a model for the view. Please note that this class
+ * uses the redirect scope to preserve messages across redirects.
  */
 @Named
-@RequestScoped
-public class Messages {
+@RedirectScoped
+public class Messages implements Serializable {
+
+  private static final long serialVersionUID = 6012270416224546642L;
 
   private String info;
 
