@@ -42,6 +42,14 @@
 
   <dependencies>
 
+    <!-- Servlet -->
+    <dependency>
+      <groupId>org.jboss.spec.javax.servlet</groupId>
+      <artifactId>jboss-servlet-api_3.1_spec</artifactId>
+      <version>1.0.0.Final</version>
+      <scope>provided</scope>
+    </dependency>
+
     <!-- Required dependencies if you deploy to a plain Servlet container like Tomcat -->
     <dependency>
       <groupId>org.glassfish.jersey.containers</groupId>
