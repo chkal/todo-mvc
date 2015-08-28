@@ -70,7 +70,7 @@
                   ${item.dueDate}
               </td>
               <td class="text-center">
-                <form action="${pageContext.request.contextPath}/r/items/delete" method="POST">
+                <form action="${pageContext.request.contextPath}/items/delete" method="POST">
                   <input type="hidden" name="id" value="${item.id}"/>
                   <button type="submit" class="btn btn-danger">
                     Delete
@@ -82,7 +82,7 @@
         </tbody>
       </table>
 
-      <form action="${pageContext.request.contextPath}/r/items/create" method="POST" class="form-inline">
+      <form action="${pageContext.request.contextPath}/items/create" method="POST" class="form-inline">
         <div class="form-group">
           <input type="text" class="form-control" id="title" name="title" placeholder="Title"
               value="${createItemForm.title}" autofocus>
