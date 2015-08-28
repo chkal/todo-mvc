@@ -10,6 +10,10 @@
 
   <name>todo-mvc</name>
 
+  <properties>
+    <jersey.version>2.19</jersey.version>
+  </properties>
+
   <build>
     <finalName>todo-mvc</finalName>
 
@@ -54,17 +58,17 @@
     <dependency>
       <groupId>org.glassfish.jersey.containers</groupId>
       <artifactId>jersey-container-servlet</artifactId>
-      <version>2.19</version>
+      <version>${jersey.version}</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jersey.ext.cdi</groupId>
       <artifactId>jersey-cdi1x</artifactId>
-      <version>2.19</version>
+      <version>${jersey.version}</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jersey.ext</groupId>
       <artifactId>jersey-bean-validation</artifactId>
-      <version>2.19</version>
+      <version>${jersey.version}</version>
     </dependency>
     <dependency>
       <groupId>javax.enterprise</groupId>
