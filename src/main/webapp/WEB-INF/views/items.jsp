@@ -73,6 +73,7 @@
               <td class="text-center">
                 <form action="${mvc.contextPath}${mvc.applicationPath}/items/delete" method="POST">
                   <input type="hidden" name="id" value="${item.id}"/>
+                  <input type="hidden" name="${mvc.csrf.name}" value="${mvc.csrf.token}"/>
                   <button type="submit" class="btn btn-danger">
                     Delete
                   </button>
