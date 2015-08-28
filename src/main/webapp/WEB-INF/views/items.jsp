@@ -29,14 +29,14 @@
       <!-- In real world application this should go into a tag file -->
       <c:if test="${messages.info != null}">
         <div class="alert alert-success" role="alert">
-          ${messages.info}
+          ${mvc.encoders.html(messages.info)}
         </div>
       </c:if>
       <c:if test="${not empty messages.errors}">
         <div class="alert alert-danger" role="alert">
           <ul class="list-unstyled">
             <c:forEach var="error" items="${messages.errors}">
-              <li>${error}</li>
+              <li>${mvc.encoders.html(error)}</li>
             </c:forEach>
           </ul>
         </div>
@@ -61,7 +61,8 @@
           <c:forEach var="item" items="${items}">
             <tr>
               <td class="text-left">
-                ${item.title}
+                <!-- For security reasons text should be escaped -->
+                ${mvc.encoders.html(item.title)}
               </td>
               <td class="text-center">
                   ${item.priority}
