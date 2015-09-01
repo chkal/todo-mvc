@@ -6,7 +6,7 @@ import de.chkal.todo.service.TodoService;
 import javax.inject.Inject;
 import javax.mvc.Models;
 import javax.mvc.annotation.Controller;
-import javax.mvc.validation.ValidationResult;
+import javax.mvc.binding.BindingResult;
 import javax.validation.Valid;
 import javax.validation.executable.ExecutableType;
 import javax.validation.executable.ValidateOnExecution;
@@ -27,7 +27,7 @@ public class TodoListController {
   private Models models;
 
   @Inject
-  private ValidationResult validationResult;
+  private BindingResult bindingResult;
 
   @Inject
   private Messages messages;
@@ -47,19 +47,19 @@ public class TodoListController {
 
   /**
    * Handles data submitted by the "create item" form. The form data is validated
-   * using Bean Validation annotations. The method uses MVC's ValidationResult class
-   * to access the detected violations. If violations were found, they are added
-   * to the custom Messages class which is used by the view for rendering.
+   * using Bean Validation annotations. The method uses MVC's BindingResult class
+   * to access the detected binding errors and constraint violations. If errors
+   * were found, they are added to the custom Messages class which is used by
+   * the view for rendering.
    */
   @POST
   @Path("/create")
   @ValidateOnExecution(type = ExecutableType.NONE)
   public String createItem(@BeanParam @Valid CreateItemForm form) {
 
-    if (validationResult.isFailed()) {
+    if (bindingResult.isFailed()) {
 
-      validationResult.getAllViolations().stream()
-          .map(violation -> violation.getMessage())
+      bindingResult.getAllMessages().stream()
           .forEach(message -> messages.addError(message));
 
       // The inputs should be populated with the previously submitted invalid values
