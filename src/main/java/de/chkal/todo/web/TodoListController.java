@@ -70,8 +70,8 @@ public class TodoListController {
 
     }
 
-    TodoItem newItem = todoService.createItem(form.getTitle(), form.getPriority(),
-        form.getDueDate());
+    TodoItem newItem = todoService.createItem(
+        form.getTitle(), form.getPriority(), form.getDueDate());
 
     /*
      * Redirect the user after that so that pressing F5 in the browser
