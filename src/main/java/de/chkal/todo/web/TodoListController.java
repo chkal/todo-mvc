@@ -8,8 +8,6 @@ import javax.mvc.Models;
 import javax.mvc.annotation.Controller;
 import javax.mvc.binding.BindingResult;
 import javax.validation.Valid;
-import javax.validation.executable.ExecutableType;
-import javax.validation.executable.ValidateOnExecution;
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -54,7 +52,6 @@ public class TodoListController {
    */
   @POST
   @Path("/create")
-  @ValidateOnExecution(type = ExecutableType.NONE)
   public String createItem(@BeanParam @Valid CreateItemForm form) {
 
     if (bindingResult.isFailed()) {

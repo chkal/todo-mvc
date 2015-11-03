@@ -11,12 +11,10 @@
     this will also affect non-controller methods. Which way to choose is basically
     a matter of taste. :)
   -->
-  <!--
   <executable-validation enabled="true">
     <default-validated-executable-types>
       <executable-type>NONE</executable-type>
     </default-validated-executable-types>
   </executable-validation>
-  -->
 
 </validation-config>
