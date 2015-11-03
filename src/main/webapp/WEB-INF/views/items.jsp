@@ -88,21 +88,22 @@
             method="POST" class="form-inline">
 
         <div class="form-group">
-          <input type="text" class="form-control" id="title" name="title" placeholder="Title"
-              value="${form.title}" autofocus>
+          <input type="text" class="form-control" id="title" name="title"
+                 placeholder="Title" value="${form.title}" autofocus>
         </div>
 
         <div class="form-group">
           <select name="priority" class="form-control" title="Priority">
             <option value="">- Priority -</option>
-            <option value="LOW">LOW</option>
-            <option value="MEDIUM">MEDIUM</option>
-            <option value="HIGH">HIGH</option>
+            <option value="LOW" ${ form.priority == 'LOW' ? 'selected' : '' }>LOW</option>
+            <option value="MEDIUM" ${ form.priority == 'MEDIUM' ? 'selected' : '' }>MEDIUM</option>
+            <option value="HIGH" ${ form.priority == 'HIGH' ? 'selected' : '' }>HIGH</option>
           </select>
         </div>
 
         <div class="form-group">
-          <input type="text" id="duedate" name="duedate" class="form-control" placeholder="Due date">
+          <input type="text" id="duedate" name="duedate" class="form-control"
+                 placeholder="Due date" value="${form.dueDate}">
           <script type="application/javascript">
             $(function () {
               $('#duedate').datepicker({
