@@ -71,7 +71,7 @@
                   ${item.dueDate}
               </td>
               <td class="text-center">
-                <form action="${mvc.contextPath}${mvc.applicationPath}/items/delete" method="POST">
+                <form action="${mvc.basePath}/items/delete" method="POST">
                   <input type="hidden" name="id" value="${item.id}"/>
                   <input type="hidden" name="${mvc.csrf.name}" value="${mvc.csrf.token}"/>
                   <button type="submit" class="btn btn-danger">
@@ -84,7 +84,7 @@
         </tbody>
       </table>
 
-      <form action="${mvc.contextPath}${mvc.applicationPath}/items/create"
+      <form action="${mvc.basePath}/items/create"
             method="POST" class="form-inline">
 
         <div class="form-group">
