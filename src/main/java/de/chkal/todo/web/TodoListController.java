@@ -59,11 +59,11 @@ public class TodoListController {
 
     if (bindingResult.isFailed()) {
 
-      bindingResult.getAllMessages().stream()
-          .forEach(message -> messages.addError(message));
+      // store errors to display them in the view
+      messages.addErrors(bindingResult.getAllMessages());
 
       // The inputs should be populated with the previously submitted invalid values
-      models.put("createItemForm", form);
+      models.put("form", form);
 
       // reuse the listItems() controller method to prepare the model for rendering
       return listItems();

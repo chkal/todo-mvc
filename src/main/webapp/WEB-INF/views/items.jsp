@@ -89,7 +89,7 @@
 
         <div class="form-group">
           <input type="text" class="form-control" id="title" name="title" placeholder="Title"
-              value="${createItemForm.title}" autofocus>
+              value="${form.title}" autofocus>
         </div>
 
         <div class="form-group">

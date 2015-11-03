@@ -4,6 +4,7 @@ import javax.inject.Named;
 import javax.mvc.annotation.RedirectScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -26,6 +27,11 @@ public class Messages implements Serializable {
 
   public Messages addError(String error) {
     errors.add(error);
+    return this;
+  }
+
+  public Messages addErrors(Collection<String> errors) {
+    this.errors.addAll(errors);
     return this;
   }
 
