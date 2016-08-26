@@ -66,12 +66,12 @@
     <dependency>
       <groupId>javax.mvc</groupId>
       <artifactId>javax.mvc-api</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>20160715</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.ozark</groupId>
       <artifactId>ozark</artifactId>
-      <version>1.0.0-m03-SNAPSHOT</version>
+      <version>20160715</version>
     </dependency>
 
     <!-- This example uses JSP as the view technology -->
@@ -102,14 +102,14 @@
 
   <repositories>
     <repository>
-      <id>java.net-Public</id>
-      <name>Maven Java Net Snapshots and Releases</name>
-      <url>https://maven.java.net/content/groups/public/</url>
+      <id>bintray-mvc-spec-maven</id>
+      <name>bintray</name>
+      <url>http://dl.bintray.com/mvc-spec/maven</url>
       <releases>
         <enabled>true</enabled>
       </releases>
       <snapshots>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
       </snapshots>
     </repository>
   </repositories>
