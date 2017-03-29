@@ -97,7 +97,7 @@
                             <images>
                                 <image>
                                     <alias>payara</alias>
-                                    <name>ivargrimstad/${project.artifactId}:payara</name>
+                                    <name>chkal/${project.artifactId}:payara</name>
                                     <build>
                                         <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
                                         <from>payara/server-web:163</from>
