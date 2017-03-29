@@ -1,117 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>de.chkal.todo</groupId>
-  <artifactId>todo-mvc</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>war</packaging>
+    <groupId>de.chkal.todo</groupId>
+    <artifactId>todo-mvc</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
-  <name>todo-mvc</name>
+    <name>todo-mvc</name>
 
-  <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <jersey.version>2.22.2</jersey.version>
-  </properties>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <jersey.version>2.22.2</jersey.version>
+        <version.docker-maven-plugin>0.20.0</version.docker-maven-plugin>
+    </properties>
 
-  <build>
-    <finalName>todo-mvc</finalName>
-  </build>
+    <build>
+        <finalName>todo-mvc</finalName>
+    </build>
 
-  <dependencies>
+    <dependencies>
 
-    <!-- Servlet API -->
-    <dependency>
-      <groupId>org.jboss.spec.javax.servlet</groupId>
-      <artifactId>jboss-servlet-api_3.1_spec</artifactId>
-      <version>1.0.0.Final</version>
-      <scope>provided</scope>
-    </dependency>
+ 
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+    
 
-    <!-- Required dependencies if you deploy to a plain Servlet container like Tomcat -->
-    <dependency>
-      <groupId>org.glassfish.jersey.containers</groupId>
-      <artifactId>jersey-container-servlet</artifactId>
-      <version>${jersey.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jersey.ext.cdi</groupId>
-      <artifactId>jersey-cdi1x</artifactId>
-      <version>${jersey.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jersey.ext</groupId>
-      <artifactId>jersey-bean-validation</artifactId>
-      <version>${jersey.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.enterprise</groupId>
-      <artifactId>cdi-api</artifactId>
-      <version>2.0-EDR1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jboss.weld.servlet</groupId>
-      <artifactId>weld-servlet-core</artifactId>
-      <version>3.0.0.Alpha12</version>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-validator-cdi</artifactId>
-      <version>5.2.1.Final</version>
-    </dependency>
+        <!-- The MVC API + RI -->
+        <dependency>
+            <groupId>javax.mvc</groupId>
+            <artifactId>javax.mvc-api</artifactId>
+            <version>20160715</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.ozark</groupId>
+            <artifactId>ozark</artifactId>
+            <version>20160715</version>
+        </dependency>
 
-    <!-- The MVC API + RI -->
-    <dependency>
-      <groupId>javax.mvc</groupId>
-      <artifactId>javax.mvc-api</artifactId>
-      <version>20160715</version>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.ozark</groupId>
-      <artifactId>ozark</artifactId>
-      <version>20160715</version>
-    </dependency>
+        <!-- This example uses JSP as the view technology -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
 
-    <!-- This example uses JSP as the view technology -->
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-      <version>1.2</version>
-    </dependency>
+        <!-- CSS + JavaScript stuff -->
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>jquery</artifactId>
+            <version>1.11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap-datepicker</artifactId>
+            <version>1.4.0</version>
+        </dependency>
 
-    <!-- CSS + JavaScript stuff -->
-    <dependency>
-      <groupId>org.webjars.bower</groupId>
-      <artifactId>jquery</artifactId>
-      <version>1.11.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.webjars.bower</groupId>
-      <artifactId>bootstrap</artifactId>
-      <version>3.3.4</version>
-    </dependency>
-    <dependency>
-      <groupId>org.webjars</groupId>
-      <artifactId>bootstrap-datepicker</artifactId>
-      <version>1.4.0</version>
-    </dependency>
+    </dependencies>
 
-  </dependencies>
+    <repositories>
+        <repository>
+            <id>bintray-mvc-spec-maven</id>
+            <name>bintray</name>
+            <url>http://dl.bintray.com/mvc-spec/maven</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
-  <repositories>
-    <repository>
-      <id>bintray-mvc-spec-maven</id>
-      <name>bintray</name>
-      <url>http://dl.bintray.com/mvc-spec/maven</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
+    <profiles>
+        <profile>
+            <id>payara</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>${version.docker-maven-plugin}</version>
+                        <configuration>
+                            <images>
+                                <image>
+                                    <alias>payara</alias>
+                                    <name>ivargrimstad/${project.artifactId}:payara</name>
+                                    <build>
+                                        <maintainer>Ivar Grimstad (ivar.grimstad@gmail.com)</maintainer>
+                                        <from>payara/server-web:163</from>
+                                        <assembly>
+                                            <basedir>/opt/payara41/glassfish/domains/domain1/autodeploy/</basedir>
+                                            <descriptorRef>artifact</descriptorRef>
+                                        </assembly>
+                                        <entryPoint>
+                                            <arg>/opt/payara41/bin/asadmin</arg>
+                                            <arg>start-domain</arg>
+                                            <arg>-v</arg>
+                                        </entryPoint>
+                                    </build>
+                                    <run>
+                                        <ports>
+                                            <port>8083:8080</port>
+                                        </ports>
+                                    </run>
+                                </image>
 
+                            </images>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    
 </project>
