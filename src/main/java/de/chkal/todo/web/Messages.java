@@ -1,7 +1,7 @@
 package de.chkal.todo.web;
 
 import javax.inject.Named;
-import javax.mvc.annotation.RedirectScoped;
+import javax.mvc.RedirectScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
